@@ -1,0 +1,23 @@
+{
+  "name": "magewirephp/examples",
+  "description": "A Magento 2 module including all sorts of Magewire inspired examples",
+  "version": "1.0.0",
+  "type": "magento2-module",
+  "require": {
+    "magewirephp/magewire": "dev-develop"
+  },
+  "authors": [
+    {
+      "name": "Willem Poortman"
+    }
+  ],
+  "license": "GPL-3.0-or-later",
+  "autoload": {
+    "files": [
+      "src/registration.php"
+    ],
+    "psr-4": {
+      "Magewirephp\\MagewireExamples\\": "src/"
+    }
+  }
+}
