@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      layout="1column"
+>
+    <body>
+        <referenceContainer name="content">
+            <container name="examples.wrapper" htmlClass="grid grid-cols-3 gap-8" htmlTag="div">
+                <block name="magewire.examples"
+                       template="Magewirephp_MagewireExamples::examples.phtml"
+                />
+
+                <block name="magewire.todo">
+                    <arguments>
+                        <argument name="magewire"
+                                  xsi:type="object"
+                        >
+                            \Magewirephp\MagewireExamples\Magewire\Todo
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="magewire.todo-checklist">
+                    <arguments>
+                        <argument name="magewire"
+                                  xsi:type="object"
+                        >
+                            \Magewirephp\MagewireExamples\Magewire\TodoChecklist
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="magewire.list-randomizer">
+                    <arguments>
+                        <argument name="magewire"
+                                  xsi:type="object"
+                        >
+                            \Magewirephp\MagewireExamples\Magewire\ListShuffle
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="magewire.dispatch-events">
+                    <arguments>
+                        <argument name="magewire"
+                                  xsi:type="object"
+                        >
+                            \Magewirephp\MagewireExamples\Magewire\DispatchEvents
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="magewire.pagination">
+                    <arguments>
+                        <argument name="magewire"
+                                  xsi:type="object"
+                        >
+                            \Magewirephp\MagewireExamples\Magewire\Pagination
+                        </argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

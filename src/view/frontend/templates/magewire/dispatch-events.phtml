@@ -1,0 +1,89 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\DispatchEvents $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="dispatch-events" class="space-y-4">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Dispatch Events') ?>
+    </h2>
+
+    <p class="border border-blue-300 bg-blue-100 p-4 rounded-md">
+        <?= __('Will trigger a PHP "process" method who on his turn fires a browser event where is being listened to.') ?>
+    </p>
+
+    <div x-data="dispatchEventsDialog()" class="mt-4">
+        <button type="button" wire:click="process" class="btn btn-primary float-right" x-show="!isVisible()">
+            Process
+        </button>
+
+        <div x-show="isVisible()">
+            <iframe class="w-full"
+                    id="rickroll-iframe"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope;"
+                    allowfullscreen
+            ></iframe>
+
+            <div class="flex justify-between mt-4">
+                <button type="button"
+                        class="btn bg-green-500"
+                        x-on:click="toVideo('play')">
+                    <?= __('Play') ?>
+                </button>
+                <button type="button"
+                        class="btn bg-yellow-500"
+                        x-on:click="toVideo('stop')">
+                    <?= __('Stop') ?>
+                </button>
+                <button type="button"
+                        class="btn bg-purple-500"
+                        x-on:click="toVideo('pause')">
+                    <?= __('Pause') ?>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function dispatchEventsDialog() {
+        const self = this
+        const iframe = document.getElementById('rickroll-iframe')
+
+        let previousControl = null
+
+        window.addEventListener('show-rick-roll', event => {
+            iframe.src = event.detail.url
+            self.visible = true
+        })
+
+        return {
+            visible: false,
+            show() {
+                self.visible = true
+            },
+            hide() {
+                self.visible = false
+            },
+            isVisible() {
+                return self.visible
+            },
+            toVideo(control) {
+                const video = iframe.contentWindow
+                video.postMessage('{"event":"command","func":"' + control + 'Video","args":""}', '*')
+
+                if (control === 'play' && self.previousControl === 'stop') {
+                    Magewire.emitTo('magewire.todo-checklist', 'todo:finish', ['Watch Rick Astley on YouTube'])
+                }
+
+                self.previousControl = control;
+            }
+        }
+    }
+</script>

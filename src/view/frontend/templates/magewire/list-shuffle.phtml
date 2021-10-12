@@ -1,0 +1,87 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\ListShuffle $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="shuffle" class="space-y-4">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('List Shuffle') ?>
+    </h2>
+
+    <ul class="space-y-2">
+        <?php foreach ($magewire->getThings() as $thing): ?>
+        <li class="block px-3 py-1 bg-gray-100" wire:key="<?= $thing['id'] ?>" animate-move>
+            <?= $thing['title'] ?>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <p class="border border-blue-300 bg-blue-100 p-4 rounded-md">
+        <?= __('As a final measure, adding wire:key will directly tell Magewire how to keep track of a
+        DOM element. Over-using this attribute is a smell, but it is very useful and powerful for problems of this
+        nature.') ?>
+    </p>
+
+    <div x-data="{explanationVisible: <?= !$magewire->getMarkAsDone() ? 'false' : 'true' ?>}"
+         class="flex-col space-y-4"
+    >
+        <label class="inline-flex items-center cursor-pointer" for="markAsDone">
+            <input type="checkbox"
+                   id="markAsDone"
+                   wire:model="markAsDone"
+                   x-on:click="explanationVisible = !explanationVisible"/>
+            <span class="ml-4">Mark "Shuffle" task as done.</span>
+        </label>
+
+        <p class="border border-green-300 bg-green-100 p-4 rounded-md" x-show="explanationVisible">
+            <?= __('Awesome, now watch what happens within the "Tasks Done" example when you click Shuffle.') ?>
+        </p>
+    </div>
+
+    <button wire:click="shuffle" class="btn btn-primary text-center float-right">Shuffle</button>
+</div>
+
+<script>
+    /**
+     * Check out this cool animation feature explanation at the official Livewire Screencasts page.
+     * @see https://laravel-livewire.com/screencasts/s8-animate-move
+     */
+
+    let animations
+
+    document.addEventListener('DOMContentLoaded', () => {
+        Magewire.hook('message.received', () => {
+            let things = Array.from(document.querySelectorAll('[animate-move]'))
+
+            animations = things.map(thing => {
+                let topO = thing.getBoundingClientRect().top
+
+                return () => {
+                    let topN = thing.getBoundingClientRect().top
+                    let calc = (topO - topN)
+
+                    thing.animate([
+                        {transform: 'translateY(' + calc + 'px)'},
+                        {transform: 'translateY(0px)'}
+                    ], {duration: 1000, easing: 'ease'})
+                }
+            })
+
+            things.forEach((thing => {
+                thing.getAnimations().forEach(animations => animations.finish())
+            }))
+        })
+
+        Magewire.hook('message.processed', () => {
+            while (animations.length) {
+                animations.shift()()
+            }
+        })
+    })
+</script>

@@ -1,0 +1,39 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\Pagination $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="pagination" class="space-y-4">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Pagination') ?>
+    </h2>
+
+    <div class="overflow-x-auto">
+        <table class="table-auto border-collapse w-full">
+            <tbody class="text-sm font-normal text-gray-700">
+            <?php foreach($magewire->getPageItems() as $key => $item): ?>
+                <tr class="bg-gray-100 py-10" wire:key="<?= $key ?>">
+                    <td class="px-3 py-3 font-bold"><?= $item['w'] ?></td>
+                    <td class="px-3 py-3"><?= $item['d'] ?></td>
+                    <td class="px-3 py-3"><?= $item['s'] ?></td>
+                    <td class="px-3 py-3"><?= $item['a'] ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="border border-blue-300 bg-blue-100 p-4 rounded-md">
+        <?= __('Pagination is still in early development but worthy to show anyway. It allow\'s you to render
+        one or multiple pagination button who are automatically attached to your component as long as it\'s extending
+        from the Pagination Interface.') ?>
+    </p>
+
+    <?= $magewire->renderPagination() ?>
+</div>
