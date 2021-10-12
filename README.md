@@ -12,6 +12,9 @@ package will grow over time, based on new ideas and/or features introduced into 
 composer require magewirephp/magewire-examples --dev
 ```
 
+## Usage
+Navigate to ```{store_url}/magewire/examples``` inside your browser.
+
 ## Security Vulnerabilities
 If you discover a security vulnerability within Magewire, please create a PR or send an e-mail to Willem Poortman via [magewirephp@wpoortman.nl](mailto:magewirephp@wpoortman.nl). All security vulnerabilities will be promptly addressed.
 
