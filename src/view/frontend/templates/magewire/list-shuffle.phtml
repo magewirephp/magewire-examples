@@ -34,7 +34,7 @@ $magewire = $block->getMagewire();
         <label class="inline-flex items-center cursor-pointer" for="markAsDone">
             <input type="checkbox"
                    id="markAsDone"
-                   wire:model="markAsDone"
+                   wire:model.defer="markAsDone"
                    x-on:click="explanationVisible = !explanationVisible"/>
             <span class="ml-4">Mark "Shuffle" task as done.</span>
         </label>

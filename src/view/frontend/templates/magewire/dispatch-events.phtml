@@ -78,11 +78,11 @@ $magewire = $block->getMagewire();
                 const video = iframe.contentWindow
                 video.postMessage('{"event":"command","func":"' + control + 'Video","args":""}', '*')
 
-                if (control === 'play' && self.previousControl === 'stop') {
+                if (control === 'play' && previousControl === 'stop') {
                     Magewire.emitTo('magewire.todo-checklist', 'todo:finish', ['Watch Rick Astley on YouTube'])
                 }
 
-                self.previousControl = control;
+                previousControl = control;
             }
         }
     }
