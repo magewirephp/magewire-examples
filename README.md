@@ -4,12 +4,12 @@
 ![magento-open-source](https://img.shields.io/badge/Magento_Open_Source-2.4.x-orange)
 ![adobe-commerce](https://img.shields.io/badge/Adobe_Commerce-2.4.x-red)
 
-A development Magewire showcase to give easy insights on where Magewire could possibly be a fit for your project. This
-package will grow based on new ideas and/or features introduced into Magewire.
+A Magewire showcase to give easy insights on where Magewire could possibly fit in your project. This
+package will grow over time, based on new ideas and/or features introduced into Magewire.
 
 ## Installation
 ```
-composer require magewirephp/examples --dev
+composer require magewirephp/magewire-examples --dev
 ```
 
 ## Security Vulnerabilities
