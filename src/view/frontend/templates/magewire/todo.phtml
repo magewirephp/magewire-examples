@@ -1,0 +1,59 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\Todo $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="magewire.example.todo">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Tasks Todo') ?> <span class="float-right"><?= count($magewire->getTasks()) ?></span>
+    </h2>
+
+    <ul class="space-y-2">
+        <li class="flex gap-x-4">
+            <input type="text"
+                   placeholder="<?= __('Task Description...') ?>"
+                   wire:model.defer="task"
+                   minlength="4"
+                   class="form-input flex-grow disabled:opacity-50"
+                   wire:loading.attr="disabled"
+            />
+            <button type="button"
+                    class="btn btn-primary disabled:opacity-50"
+                    wire:click="saveTask"
+                    wire:loading.attr="disabled"
+            >
+                <?= __('Save') ?>
+            </button>
+        </li>
+
+        <?php if (count($magewire->getTasks())): ?>
+        <?php foreach ($magewire->getTasks() as $index => $title): ?>
+        <li class="flex">
+            <button type="button"
+                    wire:click="finishTask(<?= $index ?>)"
+                    class="btn rounded-r-none bg-white text-black w-3/4 pt-4 hover:bg-white border-b-4 border-white hover:border-green-500"
+                    title="<?= __('Mark as complete') ?>"
+            >
+                <span><?= $title ?></span>
+            </button>
+
+            <button type="button"
+                    wire:click="modifyTask(<?= $index ?>)"
+                    class="btn rounded-l-none w-1/4 bg-purple-500 text-white hover:bg-purple-700 text-center"
+                    title="<?= __('Modify Task') ?>"
+            >
+                <?= __('Modify') ?>
+            </button>
+        </li>
+        <?php endforeach; ?>
+        <?php else: ?>
+        <li class="text-center"><?= __('All done! Let\'s go and celebrate!.') ?></li>
+        <?php endif; ?>
+    </ul>
+</div>

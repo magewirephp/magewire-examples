@@ -10,6 +10,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Magewirephp_Examples',
+    'Magewirephp_MagewireExamples',
     __DIR__
 );

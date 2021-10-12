@@ -1,0 +1,39 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\TodoChecklist $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="magewire.example.todo-checklist">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Tasks Done') ?> <span class="float-right"><?= count($magewire->getTasks()) ?></span>
+    </h2>
+
+    <?php if (count($magewire->getTasks())): ?>
+    <ul class="space-y-4">
+        <?php foreach ($magewire->getTasks() as $index => $title): ?>
+            <li wire:key="<?= $index ?>">
+                <button type="button"
+                        wire:click="resetTask(<?= $index ?>)"
+                        wire:
+                        class="btn w-full border-b-4 pt-4 border-green-500 bg-white text-black hover:bg-white hover:border-red-500"
+                        title="<?= __('Mark as incomplete') ?>"
+                >
+                    <span><?= $title ?></span>
+                </button>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <button type="button" wire:click="clearTasks" class="btn btn-primary mt-4 float-right">
+        <?= __('Clear tasks') ?>
+    </button>
+    <?php else: ?>
+    <p class="text-center"><?= __('No tasks available.') ?></p>
+    <?php endif; ?>
+</div>
