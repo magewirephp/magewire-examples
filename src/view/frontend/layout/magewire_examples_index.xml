@@ -59,6 +59,16 @@
                         </argument>
                     </arguments>
                 </block>
+
+                <block name="magewire.reacticon">
+                    <arguments>
+                        <argument name="magewire"
+                                  xsi:type="object"
+                        >
+                            \Magewirephp\MagewireExamples\Magewire\Reacticon
+                        </argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
     </body>
