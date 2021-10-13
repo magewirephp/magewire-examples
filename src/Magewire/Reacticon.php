@@ -9,7 +9,6 @@
 namespace Magewirephp\MagewireExamples\Magewire;
 
 use Magewirephp\Magewire\Component;
-use Magewirephp\Magewire\Model\Element\FlashMessage;
 
 /**
  * @method int getQuantity()
@@ -65,20 +64,14 @@ class Reacticon extends Component
      */
     public function increment(): void
     {
-        $this->quantity = $this->getQuantity() + $this->getInterval();
+        $this->quantity++;
     }
 
     /**
-     * @return FlashMessage|void
+     * @return void
      */
     public function decrement()
     {
-        $calc = $this->getQuantity() - $this->getInterval();
-
-        if ($calc < 0) {
-            return $this->dispatchNoticeMessage('You can\'t go below zero');
-        }
-
-        $this->quantity = $calc;
+        $this->quantity--;
     }
 }

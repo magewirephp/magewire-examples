@@ -12,9 +12,7 @@
 
                 <block name="magewire.todo">
                     <arguments>
-                        <argument name="magewire"
-                                  xsi:type="object"
-                        >
+                        <argument name="magewire" xsi:type="object">
                             \Magewirephp\MagewireExamples\Magewire\Todo
                         </argument>
                     </arguments>
@@ -22,9 +20,7 @@
 
                 <block name="magewire.todo-checklist">
                     <arguments>
-                        <argument name="magewire"
-                                  xsi:type="object"
-                        >
+                        <argument name="magewire" xsi:type="object">
                             \Magewirephp\MagewireExamples\Magewire\TodoChecklist
                         </argument>
                     </arguments>
@@ -32,9 +28,7 @@
 
                 <block name="magewire.list-randomizer">
                     <arguments>
-                        <argument name="magewire"
-                                  xsi:type="object"
-                        >
+                        <argument name="magewire" xsi:type="object">
                             \Magewirephp\MagewireExamples\Magewire\ListShuffle
                         </argument>
                     </arguments>
@@ -42,9 +36,7 @@
 
                 <block name="magewire.dispatch-events">
                     <arguments>
-                        <argument name="magewire"
-                                  xsi:type="object"
-                        >
+                        <argument name="magewire" xsi:type="object">
                             \Magewirephp\MagewireExamples\Magewire\DispatchEvents
                         </argument>
                     </arguments>
@@ -52,9 +44,7 @@
 
                 <block name="magewire.pagination">
                     <arguments>
-                        <argument name="magewire"
-                                  xsi:type="object"
-                        >
+                        <argument name="magewire" xsi:type="object">
                             \Magewirephp\MagewireExamples\Magewire\Pagination
                         </argument>
                     </arguments>
@@ -62,9 +52,7 @@
 
                 <block name="magewire.reacticon">
                     <arguments>
-                        <argument name="magewire"
-                                  xsi:type="object"
-                        >
+                        <argument name="magewire" xsi:type="object">
                             \Magewirephp\MagewireExamples\Magewire\Reacticon
                         </argument>
                     </arguments>
