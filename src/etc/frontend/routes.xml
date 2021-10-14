@@ -6,5 +6,9 @@
         <route id="magewire">
             <module name="Magewirephp_MagewireExamples" before="Magewirephp_Magewire"/>
         </route>
+
+        <route id="reacticon" frontName="reacticon">
+            <module name="Magewirephp_MagewireExamples"/>
+        </route>
     </router>
 </config>

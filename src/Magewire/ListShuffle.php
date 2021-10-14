@@ -25,8 +25,9 @@ class ListShuffle extends Component
         ['id' => 0, 'title' => 'Let\'s'],
         ['id' => 1, 'title' => 'Make'],
         ['id' => 2, 'title' => 'Magento'],
-        ['id' => 3, 'title' => 'Awesome'],
-        ['id' => 4, 'title' => 'Again'],
+        ['id' => 3, 'title' => 'Even'],
+        ['id' => 4, 'title' => 'More'],
+        ['id' => 5, 'title' => 'Awesome'],
     ];
 
     public function shuffle(): void
@@ -40,9 +41,6 @@ class ListShuffle extends Component
         if ($this->getMarkAsDone()) {
             $title = 'List shuffle (' . join(',', $entities) . ')';
             $this->emitTo('magewire.todo-checklist', 'todo:finish', [$title]);
-        }
-        if ($entities === [2,1,3,0,4]) {
-            $this->emitTo('magewire.dispatch-events', 'rick:roll');
         }
     }
 }
