@@ -19,48 +19,25 @@ $magewire = $block->getMagewire();
     </p>
 
     <div x-data="dispatchEventsDialog()" class="mt-4">
-        <button type="button" wire:click="process" class="btn btn-primary float-right" x-show="!isVisible()">
-            Process
-        </button>
-
         <div x-show="isVisible()">
-            <iframe class="w-full"
-                    id="rickroll-iframe"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope;"
-                    allowfullscreen
-            ></iframe>
-
-            <div class="flex justify-between mt-4">
-                <button type="button"
-                        class="btn bg-green-500"
-                        x-on:click="toVideo('play')">
-                    <?= __('Play') ?>
-                </button>
-                <button type="button"
-                        class="btn bg-yellow-500"
-                        x-on:click="toVideo('stop')">
-                    <?= __('Stop') ?>
-                </button>
-                <button type="button"
-                        class="btn bg-purple-500"
-                        x-on:click="toVideo('pause')">
-                    <?= __('Pause') ?>
-                </button>
-            </div>
+            <p class="border border-green-300 bg-green-100 p-4 rounded-md">
+                <?= __('At this point the subsequent dispatched a process:after event set within the Magewire
+                component. It also added a note to the finished list of todo\'s.') ?>
+            </p>
         </div>
     </div>
+
+    <button type="button" wire:click="process" class="btn btn-primary float-right">
+        Toggle Process
+    </button>
 </div>
 
 <script>
     function dispatchEventsDialog() {
         const self = this
-        const iframe = document.getElementById('rickroll-iframe')
 
-        let previousControl = null
-
-        window.addEventListener('show-rick-roll', event => {
-            iframe.src = event.detail.url
-            self.visible = true
+        window.addEventListener('process:after', event => {
+            self.visible = event.detail.show
         })
 
         return {
@@ -73,16 +50,6 @@ $magewire = $block->getMagewire();
             },
             isVisible() {
                 return self.visible
-            },
-            toVideo(control) {
-                const video = iframe.contentWindow
-                video.postMessage('{"event":"command","func":"' + control + 'Video","args":""}', '*')
-
-                if (control === 'play' && previousControl === 'stop') {
-                    Magewire.emitTo('magewire.todo-checklist', 'todo:finish', ['Watch Rick Astley on YouTube'])
-                }
-
-                previousControl = control;
             }
         }
     }

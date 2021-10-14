@@ -12,16 +12,18 @@ use Magewirephp\Magewire\Component;
 
 class DispatchEvents extends Component
 {
-    protected $loader = ['process'];
+    public $process = false;
 
-    protected $listeners = ['rick:roll' => 'process'];
+    protected $loader = ['process'];
 
     public function process(): void
     {
-        $this->dispatchBrowserEvent('show-rick-roll', [
-            'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&version=3&rel=0&showinfo=0&controls=0&autohide=1&autoplay=1&title=0&byline=0&portrait=0&badge=0'
-        ]);
+        $this->process = !$this->process;
 
-        $this->emitTo('magewire.todo-checklist', 'todo:finish', ['Watch Rick Astley on YouTube']);
+        $this->dispatchBrowserEvent('process:after', ['show' => $this->process]);
+
+        $this->emitTo('magewire.todo-checklist', 'todo:finish', [
+            'Process browser event (' . ($this->process ? 'show' : 'hide') . ')'
+        ]);
     }
 }

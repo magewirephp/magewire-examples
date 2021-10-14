@@ -35,7 +35,9 @@ class Pagination extends Component\Pagination
     {
         if ($page === $this->getLastPage()) {
             $this->dispatchNoticeMessage(__('You\'ve reached the last page.'));
-            $this->emitTo('magewire.dispatch-events', 'rick:roll');
+        }
+        if ($page === 1) {
+            $this->dispatchNoticeMessage(__('You\'ve reached the first page.'));
         }
 
         $this->assign('page', (int) $page);

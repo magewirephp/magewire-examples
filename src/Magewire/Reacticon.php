@@ -28,18 +28,6 @@ class Reacticon extends Component
     public $decrement = true;
 
     /**
-     * @param string $value
-     * @return string
-     */
-    public function updatingInterval(string $value): string
-    {
-        if ((int) $value === 10) {
-            $this->emitTo('magewire.dispatch-events', 'rick:roll');
-        }
-        return $value;
-    }
-
-    /**
      * @param bool $value
      * @return bool
      */
@@ -64,7 +52,7 @@ class Reacticon extends Component
      */
     public function increment(): void
     {
-        $this->quantity++;
+        $this->quantity = $this->getQuantity() + $this->getInterval();
     }
 
     /**
@@ -72,6 +60,6 @@ class Reacticon extends Component
      */
     public function decrement()
     {
-        $this->quantity--;
+        $this->quantity = $this->getQuantity() - $this->getInterval();
     }
 }
