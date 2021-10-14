@@ -60,6 +60,12 @@ class Reacticon extends Component
      */
     public function decrement()
     {
-        $this->quantity = $this->getQuantity() - $this->getInterval();
+        $calc = $this->getQuantity() - $this->getInterval();
+
+        if ($calc < 0) {
+            return $this->dispatchNoticeMessage('You can\'t go below zero');
+        }
+
+        $this->quantity = $calc;
     }
 }
