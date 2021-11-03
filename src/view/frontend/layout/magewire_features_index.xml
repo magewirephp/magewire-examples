@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      layout="1column"
+>
+    <body>
+        <referenceContainer name="content">
+            <container name="features.wrapper" htmlClass="grid grid-cols-3 gap-8" htmlTag="div">
+                <block name="data-via-layout"
+                       template="Magewirephp_MagewireExamples::magewire/features/data-via-layout.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="array">
+                            <item name="type" xsi:type="object">\Magewirephp\MagewireExamples\Magewire\Features\DataViaLayout</item>
+                            <item name="foo" xsi:type="string">bar</item>
+                            <item name="bar" xsi:type="string">FOO</item>
+                            <item name="toggle" xsi:type="boolean">true</item>
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="template-methods"
+                       template="Magewirephp_MagewireExamples::magewire/features/template-methods.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\Features\TemplateMethods
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="switch-template"
+                       template="Magewirephp_MagewireExamples::magewire/features/switch-template/a.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="array">
+                            <item name="type" xsi:type="object">
+                                \Magewirephp\MagewireExamples\Magewire\Features\SwitchTemplate
+                            </item>
+                            <item name="templates" xsi:type="array">
+                                <item name="ta" xsi:type="string">
+                                    Magewirephp_MagewireExamples::magewire/features/switch-template/a.phtml
+                                </item>
+                                <item name="tb" xsi:type="string">
+                                    Magewirephp_MagewireExamples::magewire/features/switch-template/b.phtml
+                                </item>
+                                <item name="tc" xsi:type="string">
+                                    Magewirephp_MagewireExamples::magewire/features/switch-template/c.phtml
+                                </item>
+                            </item>
+                        </argument>
+                    </arguments>
+
+                    <block name="switch-template.header"
+                           template="Magewirephp_MagewireExamples::magewire/features/switch-template/header.phtml"/>
+                    <block name="switch-template.tools"
+                           template="Magewirephp_MagewireExamples::magewire/features/switch-template/tools.phtml"/>
+                </block>
+
+                <block name="wire-ignore"
+                       template="Magewirephp_MagewireExamples::magewire/features/wire-ignore.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\Features\WireIgnore
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="magic-actions-properties"
+                       template="Magewirephp_MagewireExamples::magewire/features/magic-actions-properties.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\Features\MagicActionsProperties
+                        </argument>
+                    </arguments>
+
+                    <block name="magic-actions-properties.emit-global"
+                           template="Magewirephp_MagewireExamples::magewire/features/magic-actions-properties/emit-global.phtml"
+                    >
+                        <arguments>
+                            <argument name="magewire" xsi:type="object">
+                                \Magewirephp\MagewireExamples\Magewire\Features\MagicActionsProperties\EmitGlobal
+                            </argument>
+                        </arguments>
+                    </block>
+
+                    <block name="magic-actions-properties.emit-specific"
+                           template="Magewirephp_MagewireExamples::magewire/features/magic-actions-properties/emit-specific.phtml"
+                    >
+                        <arguments>
+                            <argument name="magewire" xsi:type="object">
+                                \Magewirephp\MagewireExamples\Magewire\Features\MagicActionsProperties\EmitSpecific
+                            </argument>
+                        </arguments>
+                    </block>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

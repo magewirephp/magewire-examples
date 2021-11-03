@@ -40,7 +40,7 @@ class Pagination extends Component\Pagination
             $this->dispatchNoticeMessage(__('You\'ve reached the first page.'));
         }
 
-        $this->assign('page', (int) $page);
+        $this->page = (int) $page;
     }
 
     /**

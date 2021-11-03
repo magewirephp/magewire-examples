@@ -1,0 +1,24 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\Features\DataViaLayout $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="data-via-layout">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Data via Layout') ?>
+    </h2>
+
+    <div class="grid grid-cols-3 gap-4 items-center">
+    <?php foreach ($magewire->getPublicProperties() as $property => $value): ?>
+    <label><?= ucfirst($property) ?></label>
+    <input type="text" wire:model="<?= $property ?>"/>
+    <button type="button" wire:click="<?= $property ?>" class="btn btn-primary text-center text-sm">Perform Action</button>
+    <?php endforeach ?>
+    </div>
+</div>

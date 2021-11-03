@@ -6,7 +6,7 @@
  * details on copyrights and license information.
  */
 
-namespace Magewirephp\MagewireExamples\Controller\Examples;
+namespace Magewirephp\MagewireExamples\Controller\Features;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
@@ -25,7 +25,7 @@ class Index implements HttpGetActionInterface
     public function execute()
     {
         $page = $this->pageFactory->create();
-        $page->getConfig()->getTitle()->set('Magewire - Examples');
+        $page->getConfig()->getTitle()->set('Magewire - Features');
 
         return $page;
     }

@@ -1,0 +1,45 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\Features\MagicActionsProperties $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="magic-actions-properties">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Magic Actions & Properties') ?>
+    </h2>
+
+    <div class="grid grid-cols-3 gap-4 items-center mb-4">
+        <label>$toggle</label>
+        <input type="text" wire:model="toggle"/>
+        <button type="button" wire:click="$toggle('toggle')" class="btn btn-primary text-center text-sm">Perform Action</button>
+
+        <label>$set('foo', 'bar')</label>
+        <input type="text" wire:model="foo"/>
+        <button type="button" wire:click="$set('foo', 'bar')" class="btn btn-primary text-center text-sm">Perform Action</button>
+
+        <label>$set('foo', '$toggle')</label>
+        <input type="text" wire:model="foo"/>
+        <button type="button" wire:click="$set('foo', '$toggle')" class="btn btn-primary text-center text-sm">Perform Action</button>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 items-center mb-4">
+        <label class="text-sm">$emit('global', 'message')</label>
+        <button type="button" wire:click="$emit('global', 'message')" class="btn btn-primary text-center text-sm">Perform Action</button>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 items-center mb-4">
+        <label class="text-sm">$emitTo('magic-actions-properties.emit-specific', 'global', 'message')</label>
+        <button type="button" wire:click="$emitTo('magic-actions-properties.emit-specific', 'global', 'message')" class="btn btn-primary text-center text-sm">Perform Action</button>
+    </div>
+
+    <div id="magic-actions-properties-emit" wire:ignore>
+        <?= $block->getChildHtml('magic-actions-properties.emit-global') ?>
+        <?= $block->getChildHtml('magic-actions-properties.emit-specific') ?>
+    </div>
+</div>

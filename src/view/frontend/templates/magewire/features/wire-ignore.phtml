@@ -1,0 +1,40 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\Features\WireIgnore $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="skip-render" class="space-y-4">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Wire Ignore') ?>
+    </h2>
+
+    <div wire:ignore class="bg-gray-100 p-4 space-y-4 relative">
+        <button type="button"
+                class="btn btn-primary text-center text-sm"
+                onclick="this.innerText = Number(this.innerText) + 1"
+        >
+            0
+        </button>
+
+        <p class="text-sm">
+            Just hit the counter button and set it to your favorite number. Because this DOM element is ignored,
+            Magewire will skip it when fresh HTML comes back from the server. In this case, HTML will be returned
+            thanks to the "Foo Value" div rendering the value you type in the input below.
+        </p>
+    </div>
+
+    <div class="flex items-center">
+        <label class="flex-1">Foo</label>
+        <input class="flex-grow" type="text" wire:model="foo" placeholder="Insert something here..."/>
+    </div>
+
+    <div class="bg-gray-100 block p-4">
+        <?= 'Foo Value: ' . ($magewire->hasFoo() ? $magewire->getFoo() : 'None')?>
+    </div>
+</div>

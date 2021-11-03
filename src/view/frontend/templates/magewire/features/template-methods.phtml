@@ -1,0 +1,32 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\Features\DataViaLayout $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="data-via-layout">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Template Methods') ?>
+    </h2>
+
+    <div class="grid grid-cols-2 gap-4 items-center mb-4">
+        <label>foo === null</label>
+        <input type="text" value="<?= is_null($magewire->getFoo()) ? 'true' : 'false' ?>"/>
+        <label>hasFoo()</label>
+        <input type="text" value="<?= $magewire->hasFoo() ? 'true' : 'false' ?>"/>
+        <label>getFoo()</label>
+        <input type="text" value="<?= $magewire->hasFoo() ? $magewire->getFoo() : 'null' ?>"/>
+    </div>
+
+    <button type="button"
+            wire:click="$set('foo', 'bar')"
+            class="btn btn-primary text-center text-sm"
+    >
+        Set Foo
+    </button>
+</div>
