@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "magento2-module",
   "require": {
-    "magewirephp/magewire": "dev-develop"
+      "magewirephp/magewire": "^1.0"
   },
   "authors": [
     {
