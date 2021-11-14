@@ -11,7 +11,7 @@
       "name": "Willem Poortman"
     }
   ],
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "autoload": {
     "files": [
       "src/registration.php"

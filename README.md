@@ -1,8 +1,6 @@
 # Magewire Examples
-![version](https://img.shields.io/badge/Version-1.0.0--beta-blue)
+![version](https://img.shields.io/badge/Version-1.0.0-blue)
 ![hyva](https://img.shields.io/badge/Hyva_Themes-Only-1abc9c)
-![magento-open-source](https://img.shields.io/badge/Magento_Open_Source-2.4.x-orange)
-![adobe-commerce](https://img.shields.io/badge/Adobe_Commerce-2.4.x-red)
 
 A Magewire showcase to give easy insights on where Magewire could possibly fit in your project. This
 package will grow over time, based on new ideas and/or features introduced into Magewire.
@@ -13,7 +11,8 @@ composer require magewirephp/magewire-examples --dev
 ```
 
 ## Usage
-Navigate to ```{store_url}/magewire/examples``` inside your browser.
+- Navigate to ```{store_url}/magewire/examples``` inside your browser.
+- Navigate to ```{store_url}/magewire/features``` inside your browser (WIP).
 
 ## Security Vulnerabilities
 If you discover a security vulnerability within Magewire, please create a PR or send an e-mail to Willem Poortman via [magewirephp@wpoortman.nl](mailto:magewirephp@wpoortman.nl). All security vulnerabilities will be promptly addressed.
