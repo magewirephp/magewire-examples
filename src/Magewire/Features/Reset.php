@@ -15,15 +15,24 @@ use Magewirephp\Magewire\Component;
  * @method bool hasFoo()
  * @method string|null getBar()
  * @method bool hasBar()
+ * @method int|null getBoot()
+ * @method bool hasBoot()
  */
 class Reset extends Component
 {
     public $foo;
     public $bar;
 
+    public $boot;
+
+    public function boot()
+    {
+        $this->boot = random_int(0,999);
+    }
+
     public function resetByProperty(string $property)
     {
-        $this->reset([$property]);
+        $this->reset([$property], $property === 'boot');
     }
 
     public function resetAll()

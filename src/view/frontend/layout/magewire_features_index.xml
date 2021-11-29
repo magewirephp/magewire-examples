@@ -108,6 +108,16 @@
                         </argument>
                     </arguments>
                 </block>
+
+                <block name="dollar-wire"
+                       template="Magewirephp_MagewireExamples::magewire/features/dollar-wire.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\Features\DollarWire
+                        </argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
     </body>
