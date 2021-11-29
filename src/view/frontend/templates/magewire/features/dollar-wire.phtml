@@ -1,0 +1,42 @@
+<div id="dollar-wire" x-data>
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        AlpineJS: $wire
+    </h2>
+
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <button type="button"
+                    class="btn btn-primary text-center text-sm w-full"
+                    x-on:click="$wire.promise().then(
+                        (result) => {
+                            $wire.promise().then(
+                                (result) => {
+                                    alert('Promise method run '+ $wire.__instance.serverMemo.data.called +' times.')
+                                }
+                            )
+                        }
+                    )"
+            >
+                Run as a Promise()
+            </button>
+        </div>
+
+        <p class="bg-gray-100 p-4 text-sm">
+            Uses a x-on:click to call the Magewire promise() method who then waits for it's response and calls the
+            promise() method again where it alerts you afterwards.
+        </p>
+
+        <div>
+            <button type="button"
+                    class="btn btn-primary text-center text-sm w-full"
+                    x-on:click="$wire.set('foo', 'bar')"
+            >
+                Set Foo with AlpineJS
+            </button>
+        </div>
+
+        <p class="bg-gray-100 p-4 text-sm">
+            Uses a x-on:click to set the "foo" property value to "bar".
+        </p>
+    </div>
+</div>
