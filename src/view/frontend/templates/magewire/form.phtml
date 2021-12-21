@@ -1,0 +1,48 @@
+<?php declare(strict_types=1);
+/**
+ * Copyright © Willem Poortman 2021-present. All rights reserved.
+ *
+ * Please read the README and LICENSE files for more
+ * details on copyrights and license information.
+ */
+
+/** @var \Magewirephp\MagewireExamples\Magewire\Form $magewire */
+$magewire = $block->getMagewire();
+?>
+<div id="form" class="pb-72">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        <?= __('Form') ?>
+    </h2>
+
+    <form wire:submit.prevent="save">
+        <div class="flex flex-col mb-6 gap-4">
+            <input type="text"
+                   class="form-input flex-grow disabled:opacity-50"
+                   placeholder="<?= __('Firstname') ?>"
+                   wire:model.defer="customer.credentials.firstname"/>
+            <?php if ($magewire->hasError('customer.credentials.firstname')): ?>
+                <span class="text-red-800"><?= $magewire->getError('customer.credentials.firstname') ?></span>
+            <?php endif ?>
+
+            <input type="text"
+                   class="form-input flex-grow disabled:opacity-50"
+                   placeholder="<?= __('Lastname') ?>"
+                   wire:model.defer="customer.credentials.lastname"/>
+            <?php if ($magewire->hasError('customer.credentials.lastname')): ?>
+                <span class="text-red-800"><?= $magewire->getError('customer.credentials.lastname') ?></span>
+            <?php endif ?>
+
+            <input type="text"
+                   class="form-input flex-grow disabled:opacity-50"
+                   placeholder="<?= __('Email') ?>"
+                   wire:model.defer="customer.credentials.email"/>
+            <?php if ($magewire->hasError('customer.credentials.email')): ?>
+                <span class="text-red-800"><?= $magewire->getError('customer.credentials.email') ?></span>
+            <?php endif ?>
+        </div>
+
+        <button type="submit" class="btn btn-primary text-center float-right">
+            <?= __('Validate') ?>
+        </button>
+    </form>
+</div>

@@ -53,8 +53,15 @@
                 <block name="magewire.reacticon">
                     <arguments>
                         <argument name="magewire" xsi:type="object">
-
                             \Magewirephp\MagewireExamples\Magewire\Reacticon
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="magewire.form">
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\Form
                         </argument>
                     </arguments>
                 </block>
