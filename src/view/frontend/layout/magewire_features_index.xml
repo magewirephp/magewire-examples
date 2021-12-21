@@ -96,6 +96,28 @@
                         </arguments>
                     </block>
                 </block>
+
+                <block name="reset"
+                       template="Magewirephp_MagewireExamples::magewire/features/reset.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="array">
+                            <item name="type" xsi:type="object">\Magewirephp\MagewireExamples\Magewire\Features\Reset</item>
+                            <item name="foo" xsi:type="string">Bar</item>
+                            <item name="bar" xsi:type="string">Foo</item>
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="dollar-wire"
+                       template="Magewirephp_MagewireExamples::magewire/features/dollar-wire.phtml"
+                >
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\Features\DollarWire
+                        </argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
     </body>
