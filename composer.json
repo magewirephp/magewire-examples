@@ -1,7 +1,7 @@
 {
   "name": "magewirephp/magewire-examples",
   "description": "A Magento 2 module including all sorts of Magewire inspired examples",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "magento2-module",
   "require": {
       "magewirephp/magewire": "^1.0"

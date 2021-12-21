@@ -1,6 +1,6 @@
 # Magewire Examples
-![version](https://img.shields.io/badge/Version-1.0.0-blue)
 ![hyva](https://img.shields.io/badge/Hyva_Themes-Only-1abc9c)
+![Open Source](https://img.shields.io/badge/Open-Source-1abc9c)
 
 A Magewire showcase to give easy insights on where Magewire could possibly fit in your project. This
 package will grow over time, based on new ideas and/or features introduced into Magewire.
