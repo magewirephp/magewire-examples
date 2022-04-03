@@ -1,0 +1,12 @@
+<form wire:submit.prevent="save">
+    <?php if ($magewire->hasError('global')): ?>
+    <?= $magewire->getError('global') ?>
+    <?php endif ?>
+    <input type="file" wire:model="photo">
+
+    <?php if ($magewire->hasError('photo')): ?>
+    <span class="error"><?= $magewire->getError('photo') ?></span>
+    <?php endif ?>
+
+    <button type="submit">Save Photo</button>
+</form>

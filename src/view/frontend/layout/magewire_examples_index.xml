@@ -65,6 +65,23 @@
                         </argument>
                     </arguments>
                 </block>
+
+                <block name="magewire.uploader">
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\FileUploader
+                        </argument>
+                    </arguments>
+                </block>
+
+<!--                <block name="magewire.wireable">-->
+<!--                    <arguments>-->
+<!--                        <argument name="magewire" xsi:type="array">-->
+<!--                            <item name="type" xsi:type="object">\Magewirephp\MagewireExamples\Magewire\Wireable</item>-->
+<!--                            <item name="settings" xsi:type="object">\Magewirephp\MagewireExamples\Model\Settings</item>-->
+<!--                        </argument>-->
+<!--                    </arguments>-->
+<!--                </block>-->
             </container>
         </referenceContainer>
     </body>
