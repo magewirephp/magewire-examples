@@ -15,8 +15,9 @@ class SwitchTemplate extends Component
     public $templates;
     public $template;
 
-    public function mount()
+    public function mount(array $templates)
     {
+        $this->templates = $templates;
         $this->setTemplate('ta');
     }
 
