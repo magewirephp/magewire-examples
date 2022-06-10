@@ -11,7 +11,7 @@ $magewire = $block->getMagewire();
 ?>
 <div id="form" class="pb-72">
     <h2 class="text-xl font-bold mb-3 pb-2 border-b">
-        <?= __('Form') ?>
+        <?= __('Form') ?> <span class="text-gray-400">(including validation)</span>
     </h2>
 
     <form wire:submit.prevent="save">

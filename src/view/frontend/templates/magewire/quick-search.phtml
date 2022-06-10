@@ -1,0 +1,38 @@
+<?php
+$results = $magewire->getResults();
+?>
+<div class="w-full" x-data="{
+    q: $wire.q,
+
+    search(el) {
+        $wire.search(this.q)
+    }
+}">
+    <h2 class="text-xl font-bold mb-3 pb-2 border-b">
+        Quick search <span class="text-gray-400">(without wire:model)</span>
+    </h2>
+
+    <div class="space-y-6">
+        <input class="form-input w-full"
+               type="text"
+               x-model="q"
+               x-on:keyup.debounce="search()"
+               placeholder="<?= __('Search for something awesome...') ?>"
+               wire:ignore
+        />
+
+        <?php if (count($results) !== 0): ?>
+        <ol class="mt-6 list-disc list-inside" wire:loading wire:loading.class="opacity-25">
+        <?php foreach ($results as $result): ?>
+            <li><?= $result ?></li>
+        <?php endforeach ?>
+        </ol>
+
+        <p class="text-sm"><?= count($results) ?> random result<?= count($results) === 1 ? '' : 's'?> found.</p>
+        <?php endif ?>
+
+        <p class="border border-blue-300 bg-blue-100 p-4 rounded-md">
+            This example requires <a href="https://alpinejs.dev/" target="_blank">AlpineJS</a>.
+        </p>
+    </div>
+</div>

@@ -13,7 +13,7 @@
                 <block name="magewire.todo">
                     <arguments>
                         <argument name="magewire" xsi:type="object">
-                            \Magewirephp\MagewireExamples\Magewire\Todo
+                            \Magewirephp\MagewireExamples\Magewire\Todo\Todo\Todo
                         </argument>
                     </arguments>
                 </block>
@@ -62,6 +62,14 @@
                     <arguments>
                         <argument name="magewire" xsi:type="object">
                             \Magewirephp\MagewireExamples\Magewire\Form
+                        </argument>
+                    </arguments>
+                </block>
+
+                <block name="magewire.quick-search">
+                    <arguments>
+                        <argument name="magewire" xsi:type="object">
+                            \Magewirephp\MagewireExamples\Magewire\QuickSearch
                         </argument>
                     </arguments>
                 </block>
