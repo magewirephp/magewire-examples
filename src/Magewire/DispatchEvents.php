@@ -22,8 +22,10 @@ class DispatchEvents extends Component
 
         $this->dispatchBrowserEvent('process:after', ['show' => $this->process]);
 
-        $this->emitTo('magewire.todo-checklist', 'todo:finish', [
+        $this->emitTo(
+            'magewire.todo-checklist',
+            'todo:finish',
             'Process browser event (' . ($this->process ? 'show' : 'hide') . ')'
-        ]);
+        );
     }
 }
