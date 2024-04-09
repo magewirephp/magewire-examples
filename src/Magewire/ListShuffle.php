@@ -40,7 +40,7 @@ class ListShuffle extends Component
 
         if ($this->getMarkAsDone()) {
             $title = 'List shuffle (' . join(',', $entities) . ')';
-            $this->emitTo('magewire.todo-checklist', 'todo:finish', [$title]);
+            $this->emitTo('magewire.todo-checklist', 'todo:finish', $title);
         }
     }
 }
