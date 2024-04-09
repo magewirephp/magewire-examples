@@ -69,7 +69,7 @@ class Todo extends Component
             return $this->dispatchErrorMessage(__('Task with ID "%1" doesnt exist', [$index]));
         }
 
-        $this->emitTo('magewire.todo-checklist', 'todo:finish', [$this->tasks[$index]]);
+        $this->emitTo('magewire.todo-checklist', 'todo:finish', $this->tasks[$index]);
         unset($this->tasks[$index]);
     }
 
