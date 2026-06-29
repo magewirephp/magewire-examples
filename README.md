@@ -1,4 +1,7 @@
 # Magewire Examples
+
+> This module is no longer maintained and will not receive further updates. It is still available for projects running [Magewire V1.x](https://github.com/magewirephp/magewire/tree/1.x), but no new features, bug fixes, or security updates are planned.
+
 ![hyva](https://img.shields.io/badge/Hyva_Themes-Only-1abc9c)
 ![Open Source](https://img.shields.io/badge/Open-Source-1abc9c)
 
